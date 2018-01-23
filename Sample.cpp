@@ -19,6 +19,8 @@
 #include "vtkPolyDataMapper.h"
 #include "vtkActor.h"
 #include <vtkSmartPointer.h>
+#include <vtkAxesActor.h>
+#include <vtkOrientationMarkerWidget.h>
 
 // the application icon
 #ifndef __WXMSW__
@@ -176,18 +178,14 @@ void MyFrame::ConfigureVTK()
 {
   // connect the render window and wxVTK window
   pRenderWindow = m_pVTKWindow->GetRenderWindow();
-
   // connect renderer and render window and configure render window
   pRenderWindow->AddRenderer(pRenderer);
-
   // initialize cone
-  pConeSource->SetResolution(100);
-
+  pConeSource->SetResolution(200);
   // connect pipeline
   pConeMapper->SetInputConnection(pConeSource->GetOutputPort());
   pConeActor->SetMapper(pConeMapper);
   pRenderer->AddActor(pConeActor);
-
   // configure renderer
   pRenderer->SetBackground(0.5, 0.5, 0.5);
   pRenderer->GradientBackgroundOn();
@@ -196,7 +194,7 @@ void MyFrame::ConfigureVTK()
   pRenderer->GetActiveCamera()->Elevation(30.0);
   pRenderer->GetActiveCamera()->Azimuth(30.0);
   pRenderer->GetActiveCamera()->Zoom(1.0);
-  //pRenderer->GetActiveCamera()->SetClippingRange(1,1000);
+  pRenderer->GetActiveCamera()->SetClippingRange(1,1000);  
  }
 
 void MyFrame::DestroyVTK()
