@@ -61,11 +61,18 @@ private:
   wxVTKRenderWindowInteractor *m_pVTKWindow;
 
   // vtk classes
-  vtkRenderer       *pRenderer;
-  vtkRenderWindow   *pRenderWindow;
-  vtkPolyDataMapper *pConeMapper;
-  vtkActor          *pConeActor;
-  vtkConeSource     *pConeSource;
+  //vtkRenderer       *pRenderer;
+  //vtkRenderWindow   *pRenderWindow;
+ // vtkPolyDataMapper *pConeMapper;
+  //vtkActor          *pConeActor;
+  //vtkConeSource     *pConeSource;
+  vtkSmartPointer<vtkRenderer> pRenderer;
+  vtkSmartPointer<vtkRenderWindow> pRenderWindow;
+  vtkSmartPointer<vtkPolyDataMapper> pConeMapper;
+  vtkSmartPointer<vtkActor> pConeActor;
+  vtkSmartPointer<vtkConeSource> pConeSource;
+
+
 
 private:
     // any class wishing to process wxWindows events must use this macro
@@ -194,7 +201,7 @@ void MyFrame::ConfigureVTK()
   pRenderer->GetActiveCamera()->Elevation(30.0);
   pRenderer->GetActiveCamera()->Azimuth(30.0);
   pRenderer->GetActiveCamera()->Zoom(1.0);
-  pRenderer->GetActiveCamera()->SetClippingRange(1,1000);  
+  pRenderer->GetActiveCamera()->SetClippingRange(1,1000);
  }
 
 void MyFrame::DestroyVTK()
