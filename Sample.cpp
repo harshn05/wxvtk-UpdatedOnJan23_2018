@@ -189,7 +189,10 @@ void MyFrame::ConfigureVTK()
   pRenderer->AddActor(pConeActor);
 
   // configure renderer
-  pRenderer->SetBackground(0,0,0);
+  pRenderer->SetBackground(0.5, 0.5, 0.5);
+  pRenderer->GradientBackgroundOn();
+  pRenderer->SetBackground(1, 1, 1);
+  pRenderer->SetBackground2(0, 0, 1);
   pRenderer->GetActiveCamera()->Elevation(30.0);
   pRenderer->GetActiveCamera()->Azimuth(30.0);
   pRenderer->GetActiveCamera()->Zoom(1.0);
