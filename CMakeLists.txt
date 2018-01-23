@@ -13,7 +13,7 @@ set(wxWidgets_USE_LIBS)
 
 find_package(wxWidgets REQUIRED core base)
 include( "${wxWidgets_USE_FILE}" )
-add_library(wxVTKRenderWindowInteractor SHARED wxVTKRenderWindowInteractor.cxx)
+add_library(wxVTKRenderWindowInteractor SHARED wxVTKRenderWindowInteractor.cxx wxVTKRenderWindowInteractor.h)
 target_link_libraries(wxVTKRenderWindowInteractor ${VTK_LIBRARIES} ${wxWidgets_LIBRARIES} )
 
 add_executable(MAIN Sample.cpp)
