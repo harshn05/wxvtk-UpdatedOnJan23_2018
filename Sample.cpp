@@ -155,7 +155,7 @@ MyFrame::MyFrame(const wxString& title, const wxPoint& pos, const wxSize& size)
 #if wxUSE_STATUSBAR
     // create a status bar just for fun (by default with 1 pane only)
     CreateStatusBar(2);
-    SetStatusText(_T("Drag the mouse here! (wxWindows 3.0.3)"));
+    SetStatusText(_T("Drag the mouse here! (wxWidgets 3.0.3)"));
 #endif // wxUSE_STATUSBAR
 
     m_pVTKWindow = new wxVTKRenderWindowInteractor(this, MY_VTK_WINDOW);
